@@ -53,7 +53,7 @@ stages:
   displayName: Deploy to Dev
   dependsOn: Build
   variables:
-    acrsecret: '6rgub/LZV8K1WaHOadxbyVZb4d50uqlS'
+    acrsecret: k8sexamplesacrauth
     acrdevurl: 'lcaodev1est.azurecr.io'
     replicaNo: 3
   jobs:
