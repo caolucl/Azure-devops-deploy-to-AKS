@@ -45,6 +45,7 @@ stages:
     
     - task: PublishPipelineArtifact@1
       inputs:
+        #public the  yaml files to dpeploy pods, services
         targetPath: '$(Pipeline.Workspace)/s/kubernetes'
         artifact: 'manifests'
         publishLocation: 'pipeline'
