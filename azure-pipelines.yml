@@ -20,12 +20,21 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'dev1uctacr'
+        containerRegistry: 'dev1acr'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
-        tags: |
-          $(tag)
+        Dockerfile: '$(Build.SourcesDirectory)/app/e'
+        tags: '$(tag)'
+      
+  #  - task: Docker@2
+  #    inputs:
+  #      containerRegistry: 'dev1acr'
+  #      repository: 'dev1uctacr'
+  #      command: 'build'
+  #      Dockerfile: '$(Build.SourcesDirectory)/app/'
+  #      tags: '$(tag)'
+  #      
+    
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(Pipeline.Workspace)/s/kubernetes'
