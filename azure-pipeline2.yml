@@ -17,14 +17,22 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+#    - task: Docker@2
+#      displayName: Build an image
+#      inputs:
+#        containerRegistry: 'dev1acr'
+#        repository: '$(imageRepo)'
+#        command: 'buildAndPush'
+#        Dockerfile: '$(Build.SourcesDirectory)/app/e'
+#        tags: '$(tag)'
     - task: Docker@2
-      displayName: Build an image
       inputs:
         containerRegistry: 'dev1acr'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/app/e'
+        Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+    
       
   #  - task: Docker@2
   #    inputs:
